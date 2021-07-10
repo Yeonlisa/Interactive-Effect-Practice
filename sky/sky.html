@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sky loading...</title>
+    <style>
+        body {
+            height: 10000px;
+            overflow-x: hidden;
+            background-color: rgb(127, 225, 255);
+        }
+        h1 {
+            position: fixed;
+            top: 0;
+            left: 45%;
+            color: #121212;
+            justify-content: center;
+            text-align: center;
+            margin-top: 60px;
+        }
+        .loading {
+            position: fixed;
+            width: 100%;
+            height: 25px;
+            top:0;
+            left:0;
+            background-color: transparent;
+            z-index: 10;
+        }
+        .bar {
+            position: absolute;
+            width: 1%;
+            height: 25px;
+            top:0;
+            left:0;
+            background-color: yellowgreen;
+            z-index: 12;
+        }
+        .cloudWrap {
+            position: absolute;
+        }
+        .cloudWrap img {
+            position: absolute;
+            width: 400px;
+            top:0; left:0;
+        }
+        .cloudWrap img:nth-child(1) {
+            top: 200px;
+            left: 700px;
+        }
+        .cloudWrap img:nth-child(2) {
+            top: 800px;
+            left: 0px;
+        }
+        .cloudWrap img:nth-child(3) {
+            top: 1800px;
+            left: 400px;
+        }
+        .cloudWrap img:nth-child(4) {
+            top: 3000px;
+            left: -100px;
+        }
+        .cloudWrap img:nth-child(5) {
+            top: 4200px;
+            left: 500px;
+        }
+        .cloudWrap img:nth-child(6) {
+            top: 5900px;
+            left: -140px;
+        }
+        .cloudWrap img:nth-child(7) {
+            top: 7000px;
+            left: 500px;
+        }
+        .cloudWrap img:nth-child(8) {
+            top: 8000px;
+            left: -190px;
+        }
+        .cloudWrap img:nth-child(9) {
+            top: 8500px;
+            left: 600px;
+        }
+    </style>
+    <script>
+        let scrollTop = 0;
+        let bar;
+        let cloudWrap;
+
+        window.onload = () => {
+            bar = document.getElementsByClassName("bar")[0];
+            cloudWrap = document.getElementsByClassName("cloudWrap")[0];
+        }
+
+        window.addEventListener("scroll", (e) => {
+            scrollTop = document.documentElement.scrollTop;
+            let per = Math.ceil(scrollTop / (document.body.scrollHeight - window.outerHeight) * 100);
+
+            bar.style.width = per + "%";
+            cloudWrap.style.transform = "translate(0,"+ scrollTop / 1.5 +"px)";
+        }, false)
+    </script>
+</head>
+<body>
+    <div class="loading">
+        <span class="bar"></span>
+    </div>
+    <h1>Loading...</h1>
+    <div class="cloudWrap">
+        <img src="./cloud.png" alt="구름">
+        <img src="./cloud.png" alt="구름">
+        <img src="./cloud.png" alt="구름">
+        <img src="./cloud.png" alt="구름">
+        <img src="./cloud.png" alt="구름">
+        <img src="./cloud.png" alt="구름">
+        <img src="./cloud.png" alt="구름">
+        <img src="./cloud.png" alt="구름">
+        <img src="./cloud.png" alt="구름">
+    </div>
+</body>
+</html>
