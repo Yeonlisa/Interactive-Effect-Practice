@@ -45,7 +45,7 @@
         });
 
         var resultArr = ["업 ▲", "다운 ▼", "정답!"]
-        var randomNum = returnNum(50);//Math.round(Math.random()*50);
+        var randomNum = returnNum(50); //Math.round(Math.random()*50);
 
         function resultFunc(){
           var value = input.value;
@@ -72,7 +72,7 @@
         function resetFunc(){
           input.value = 1;
           result.innerHTML = "한 판더! (1부터 50사이 정수)";
-          // randomNum = Math.round(Math.random()*50);
+//           randomNum = Math.round(Math.random()*50);
           randomNum = returnNum(50);
         }
 
@@ -82,7 +82,6 @@
         }
 
       }
-      
     </script>
     </head>
     <body>
